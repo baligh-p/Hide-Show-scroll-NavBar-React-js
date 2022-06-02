@@ -1,0 +1,74 @@
+.burger {
+  cursor: pointer;
+  transition: 0.2s;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 4px;
+    background: black;
+    transition: 0.2s;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 0 black;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 4px;
+    background: black;
+    transition: 0.2s;
+    transform: translateY(10px);
+  }
+}
+#burger.active ::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 black;
+}
+#burger.active ::after {
+  transform: translateY(0px) rotate(-45deg);
+}
+@media screen and (max-height: 680px) {
+  .leftNav {
+    div {
+      margin-top: 30px;
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+@media screen and (min-height: 681px) {
+  .leftNav {
+    div {
+      margin-top: 40px;
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.profile-item {
+  display: grid;
+  grid-template: auto auto / 45px 40px repeat(10, 1fr);
+  grid-template-areas: "i i n n n n n n n n n n" "i i t t t t t t t t t t";
+  .username {
+    grid-area: n;
+  }
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: i;
+  }
+  .text {
+    grid-area: t;
+  }
+}
